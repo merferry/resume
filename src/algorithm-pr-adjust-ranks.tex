@@ -1,0 +1,16 @@
+\vspace{2em}
+\begin{algorithm}[!hbtp]
+\caption{Calculation of initial ranks for \emph{dynamic PageRank}, given ranks of vertices for \emph{previous snapshot} of the graph $F(V,E)$, and the \emph{current} graph $G(V,E)$.}
+\label{alg:pr-adjust-ranks}
+\begin{algorithmic}
+% \Require{$F$: Previous snapshot of the graph}
+% \Require{$G$: Current snapshot of the graph}
+% \Require{$prev$: Ranks of vertices in $F$}
+\Function{adjustRanks}{$\vars{F}, \vars{G}, \vars{prev}$}
+\State $old \gets F.vertices() \cap G.vertices()$
+\State $new \gets G.vertices() - F.vertices()$
+\Return{$old: prev[old] \times |V(F)|/|V(G)|, new: 1/|V(G)|$}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+\vspace{1em}

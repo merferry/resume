@@ -1,0 +1,46 @@
+\ignore{\subsection{Research Area}}
+
+\ignore{\ignore{The world is in the midst of an unprecedented growth of interconnected data, and graph processing systems are expected to play a vital role\ignore{ \cite{graph-sakr21}}. Customers of such systems are diverse and span across various industries. Social media platforms use graph algorithms to suggest connections and personalize user experiences. Online marketplaces leverage graph algorithms to provide personalized product recommendations based on user preferences and browsing history. The transportation industry uses graph algorithms to minimize travel time and improve logistics. Researchers and data scientists use graph algorithms to analyze and extract insights from complex interconnected datasets.}
+
+\ignore{Social networks are dynamic in nature, with connections, interactions, and data evolving rapidly over time. Conventional graph algorithms designed for static graphs struggle to efficiently handle the continuous changes and updates that occur within dynamic social networks. As these networks grow in complexity, the need for algorithms capable of efficiently analyzing dynamic graph data becomes increasingly crucial.}
+
+\ignore{The analysis of dynamic graph data, particularly within the context of social networks, however, presents a complex computational challenge \cite{graph-gebreegziabher23, graph-lloyd21}. This is where parallelism and streaming techniques come into play. Parallelism involves dividing a problem into smaller tasks that can be executed concurrently on multiple processing units, such as CPU cores or GPUs. Streaming algorithms, on the other hand, handle data as it arrives in a continuous stream, making it well-suited for scenarios where insights into the data need to be generated rapidly \cite{graph-mcgregor14}. Further, distributed systems harness the collective power of a network of processors \cite{graph-besta19, partition-patwary21}.} 
+
+\ignore{This makes it impractical to process such dynamic graphs on traditional single-threaded systems. Parallelism involves dividing a problem into smaller tasks that can be executed concurrently on multiple processing units, such as CPU cores or GPUs. By distributing the workload across these units, parallel processing accelerates computation, enabling the analysis of massive dynamic graphs in a timely manner. Parallel techniques hold immense promise for dynamic graph analytics.}
+
+The world is in the midst of an unprecedented growth of interconnected data\ignore{, and graph processing systems are expected to play a vital role} \cite{graph-sakr21}. The sheer volume of dynamic updates in large-scale social networks, coupled with the need for real-time insights, pose immense computational demands \cite{graph-gebreegziabher23, graph-lloyd21}. Dynamic graph algorithms handle changing graphs, and reduce time needed for analytics and enable interactivity with dataset. The time complexity of dynamic graph algorithms is a critical concern, as the efficiency of these algorithms directly impacts their applicability. This often requires sophisticated data structures and clever algorithmic techniques. Dynamic graph algorithms also aim to minimize space requirements while maintaining the necessary information to process queries and updates.
+
+\vspace{-3ex}
+Through our research, we attempt to address the challenge of efficiently analyzing dynamic graph data in large social networks while embracing parallelism on multicore CPUs and GPUs. We focus on the problems of identifying authoritative members (PageRank), discovering natural divisions in such networks (community detection), finding members with similar structural connections (SimRank), or pinpointing individuals whose engagement could yield the maximum influence. Our algorithms, for example, can be used to represent evolving criminal connections by law enforcement agencies. By integrating data from surveillance and informants, the graph's edge weights can be adjusted. Updated PageRank scores can then be used to identify influential criminals \cite{criminal-sarvari14}, while similarity measures and community detection can unveil hidden organizational structures \cite{criminal-bahulkar18}.
+
+\vspace{-3ex}
+In addition to the above, we observe that obtaining such real-world large-scale dynamic graph datasets is challenging due to privacy concerns, data sensitivity, and legal restrictions. Without access to representative data, researchers like us often struggle to validate the effectiveness of our proposed methods and models, potentially leading to solutions that do not generalize well to real-world scenarios. In light of this, we propose to design a dynamic graph generation tool, that allows one to generate datasets with batches that maintain critical structural properties (like diameter and connected components) of base graphs, or with varying update scales and distributions. Existing works only generate static graphs \cite{graph-leskovec07}, or only maintain degree distribution of graphs \cite{graph-mccrabb22}.}
+
+% I attempt to address the challenge of efficiently analyzing dynamic graph data within social networks. I focused on the PageRank and community detection problems in the batch-dynamic setting, and explored algorithms capable of addressing these challenges by embracing parallelism on multicore CPUs and accelerators like GPUs. Further, as contemporary dynamic graphs often exceed the memory capacity of a single machine \cite{graph-liakos22}, my study is expected to expand into streaming and distributed graph algorithms for these problems.
+
+
+
+
+\vspace{-2ex}
+\section{Research Results to Date}
+\vspace{-1ex}
+
+\begin{itemize}[noitemsep, leftmargin=*]
+  \item We design two new parallel algorithms for updating \textit{PageRank} of vertices in a dynamic graph. On Intel Xeon Silver 4116 CPU and NVIDIA Tesla V100 PCIe 16GB GPU, our algorithms outperform existing static and dynamic update algorithms by $6.1\times$ and $8.6\times$ on the CPU, and by $9.8\times$ and $9.3\times$ on the GPU.
+  \item We design the \textit{Dynamic Frontier} approach, a low-overhead generalized parallel algorithm for incrementally identifying affected vertices in the batch dynamic setting.
+  \item We apply the approach to both Louvain \cite{com-blondel08}, a high quality, and LPA \cite{com-raghavan07}, a high speed static \textit{community detection} algorithm. On an AMD EPYC-7742 CPU, our approach achieves a speedup of $7.3\times$ and $6.7\times$ respectively, over a state-of-the-art dynamic approache \cite{com-zarayeneh21}. We also combine Louvain and LPA into a hybrid dynamic algorithm to achieve a speedup of $2.0\times$ on top of Dynamic Frontier Louvain.
+  \item We apply the Dynamic Frontier approach to an improved \textit{Barrier-free PageRank} \cite{rank-eedi22} to arrive at a fault-tolerant and high-performance implementation. On an AMD EPYC-7742 CPU, our approach is $4.6\times$ faster than existing dynamic approaches \cite{rank-zhang17, rank-desikan05, rank-giri20}. Simulated fault injection studies indicate that our approach achieves good performance in the presence of random thread delays and also tolerates random thread crashes.
+\end{itemize}
+
+
+
+
+\vspace{-2ex}
+\section{Publication Track Record}
+\vspace{-1ex}
+
+\begin{itemize}[noitemsep, leftmargin=*]
+  \item Subhajit Sahu, Kishore Kothapalli, and Dip Sankar Banerjee. ``Dynamic Batch Parallel Algorithms for Updating PageRank." 2022 IEEE International Parallel and Distributed Processing Symposium Workshops (IPDPSW). IEEE, 2022.
+  \item Subhajit Sahu, Kishore Kothapalli, Hemalatha Eedi, and Sathya Peri. ``Lock-Free Computation of PageRank in Dynamic Graphs." [Submitted].
+  \item Subhajit Sahu, Kishore Kothapalli, and Dip Sankar Banerjee. ``Shared-Memory Parallel Algorithms for Community Detection in Dynamic Graphs." [Submitted].
+\end{itemize}

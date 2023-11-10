@@ -1,0 +1,77 @@
+%% Generic article
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+
+%% Adjust page setup
+\usepackage[skip=20pt plus1pt, indent=20pt]{parskip}
+\usepackage[tiny]{titlesec}
+\textwidth 6.5in
+\textheight 9.5in
+\oddsidemargin 0pt
+\evensidemargin 0pt
+\topmargin -67pt
+
+
+%% Helper packages
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+
+%% Common macros
+\input{macros}
+
+
+%% Message
+\newcommand{\spnote}[1]{\textcolor{red}{Sathya: #1}}
+\newcommand{\kk}[1]{\textcolor{red}{Kishore: #1}}
+\newcommand{\ds}[1]{\textcolor{red}{Dip: #1}}
+\newcommand{\he}[1]{\textcolor{red}{Hemalatha: #1}}
+\newcommand{\su}[1]{\textcolor{red}{Subhajit: #1}}
+
+%% Ignore block
+\newcommand{\ignore}[1]{}
+
+
+
+%% Full title of the resume.
+\title{
+  \vspace{-6ex}
+  \href{https://wolfram77.github.io/}{Subhajit Sahu}
+  \vspace{-4ex}
+}
+\author{
+  PhD student at CSTAR in IIIT Hyderabad and interested in \\
+  Software engineering, Carpentry, High performance computing, Cycling, \\
+  Embedded systems, Nutrition, Investing, and Watching gameplays. \\
+  {\small subhajit.sahu@research.iiit.ac.in}
+}
+\date{}
+
+
+
+
+\begin{document}
+\maketitle
+\vspace{-9ex}
+% \tableofcontents
+% \onehalfspacing
+
+\section{Introduction}
+\input{01-introduction}
+
+% \section{Research Quality}
+\input{02-research}
+
+% \section{Relevance to Texas Instruments}
+% \input{04-relevance}
+
+\section{Selected projects}
+\input{04-projects}
+
+\appendix
+\small
+\bibliographystyle{IEEEtran}
+\bibliography{main}
+\end{document}

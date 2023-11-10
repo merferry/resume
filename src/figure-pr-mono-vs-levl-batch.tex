@@ -1,0 +1,15 @@
+\begin{figure*}[!hbtp]
+  \centering
+
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{out/pr-levl-omp-batch.pdf}
+    \label{fig:pr-levl-omp-batch}
+  }
+  \subfloat{
+    \includegraphics[width=0.48\textwidth]{out/pr-mono-cuda-batch.pdf}
+    \label{fig:pr-mono-cuda-batch}
+  }
+
+  \caption{Speedup of batched \levelwisePR{} algorithm with respect to cumulative single-edge updates with the same approach on the CPU is shown on the left. Speedup of batched \monolithicPR{} algorithm with respect to cumulative single-edge updates with the same approach on the GPU is shown on the right. Batch sizes of 500, 1000, 5000, and 10000 are shown.}
+  \label{fig:pr-mono-vs-levl-batch}
+\end{figure*}

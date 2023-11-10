@@ -1,0 +1,27 @@
+\vspace{2em}
+\begin{algorithm}[!hbtp]
+\caption{Algorithm for computing \emph{dynamic Levelwise PageRank}. Here, $F$ is the previous snapshot of the temporal graph, $G$ is the current snapshot, and $prev$ is the initial estimate of pr (usually it is the \emph{adjusted} previous pr of vertices).}
+\label{alg:pr-levelwise}
+\begin{algorithmic}
+\Function{dynamicLevelwisePR}{$\vars{F}, \vars{G}, \vars{prev}$}
+  \State $SWITCH\_DEG \gets 64$ \Comment{indegree}
+  \State $SCCs \gets affectedSCCs(F, G)$
+  \State $mergeByLevel(SCCs, G)$
+  \If{$GPU$}
+    \State $partitionByIndeg(SCCs, G, SWITCH\_DEG)$
+  \EndIf
+  \Return{$\textsc{levelwiseLoop}(G, SCCs, prev)$}
+\EndFunction
+
+\Statex
+
+\Function{levelwiseLoop}{$\vars{G}, \vars{SCCs}, \vars{prev}$}
+  \State $pr \gets prev$
+  \ForAll{$SCC \in SCCs$}
+    \State $pr \gets \textsc{monolithicLoop}(G, [SCC], pr)$ \\  \Comment{see Algorithm \ref{alg:pr-static}}
+  \EndFor
+  \Return{$pr$}
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+\vspace{1em}
