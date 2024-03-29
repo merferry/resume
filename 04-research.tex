@@ -2,6 +2,8 @@
 
 \begin{itemize}[noitemsep, leftmargin=*]
   \item \href{https://ieeexplore.ieee.org/abstract/document/9835216/}{Dynamic Batch Parallel Algorithms for Updating PageRank} (2022)
+  \item Shared-Memory Parallel Algorithms for Community Detection in Dynamic Graphs (accepted)
+  \item Lock-free Computation of PageRank in Dynamic Graphs (accepted)
 \end{itemize}
 
 
@@ -10,6 +12,8 @@
 \section*{Technical Reports}
 
 \begin{itemize}[noitemsep, leftmargin=*]
+  \item \href{https://arxiv.org/abs/2403.01261}{GSL-LPA: Fast Label Propagation Algorithm (LPA) for Community Detection with no $\cdots$}
+  \item \href{https://arxiv.org/abs/2402.11454}{An Approach for Addressing Internally-Disconnected Communities in Louvain Algorithm}
   \item \href{https://arxiv.org/abs/2401.15870}{DF* PageRank: Improved Incrementally Expanding Approaches for Updating PageRank on $\cdots$}
   \item \href{https://arxiv.org/abs/2401.11415}{A Fast Parallel Approach for Neighborhood-based Link Prediction by Disregarding Large Hubs}
   \item \href{https://arxiv.org/abs/2401.03256}{An Incrementally Expanding Approach for Updating PageRank on Dynamic Graphs}
@@ -18,8 +22,33 @@
   \item \href{https://arxiv.org/abs/2312.04876}{GVE-Louvain: Fast Louvain Algorithm for Community Detection in Shared Memory Setting}
   \item \href{https://arxiv.org/abs/2311.14650}{GVEL: Fast Graph Loading in Edgelist and Compressed Sparse Row (CSR) formats}
   \item \href{https://arxiv.org/abs/2310.18537}{Heuristics for Inequality minimization in PageRank values}
-  \item \href{https://arxiv.org/abs/2301.12390}{Enhancing Efficiency in Parallel Louvain Algorithm for Community Detection}
-  \item \href{https://arxiv.org/abs/2301.09125}{Selecting a suitable Parallel Label-propagation based algorithm for Disjoint Community De...}
-  \item \href{https://arxiv.org/abs/2108.04150}{Effect of stepwise adjustment of Damping factor upon PageRank}
-  \item \href{https://arxiv.org/abs/2108.02997}{Adjusting PageRank parameters and Comparing results}
 \end{itemize}
+
+
+
+
+\ignore{\section*{Reviews}}
+
+\ignore{
+I have worked on fast algorithms for community detection in large graphs. They minimize the use of shared data structures, and use stupidly simple, but amazingly fast hashtables.
+}
+
+\ignore{
+Well, i don't lose hope from failures and "exceptions" - keep on learning. I was nearing the end of my fifth year as a PhD student. Our conference papers (2) got rejected 2-3 times.
+
+The comments range from:
+- Exaggerated fault rates
+- Algorithms appear inefficient
+- Confusion in fault-tolerance claims, race conditions, convergence, and algorithms
+- Given limited insight on relationship of network topology with the results
+- Lack of experimental results with realistic batch updates, overhead of FT
+- Limited scope of results, lack of clarity on what is new, confusion in terminology
+
+Just submitted both once again.
+}
+
+\ignore{
+I like working with computer systems and improving their performance - and also in my workflow.
+
+Research scholars in our group spent a lot of time running experiments - most of which is simply spent in loading datsets into memory. I don't just focus on optimizing my target problem, but also the infrastructure needed to support the experiments - faster graph loading, faster graph processing algorithms, and scripts to process output logs.
+}
